@@ -1,6 +1,11 @@
 from django.http import HttpResponse
-from django.template.loader import get_template 
-
+from django.template.loader import get_template
+from django.shortcuts import render_to_response
+from django.core.context_processors import csrf
 def index(request):
     tmp = get_template("index.html")
-    return HttpResponse(tmp)
+    return render_to_response('index.html')
+
+def account_profile(request):
+    return HttpResponse('login sucessful!')
+

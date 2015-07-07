@@ -3,7 +3,7 @@ from django.db import connection
 from django.template import Template, Context
 from django.template.loader import get_template
 import datetime
-from django.template impport render_to_response
+from django.shortcuts import render_to_response
 
 def hello(request):
     error = False

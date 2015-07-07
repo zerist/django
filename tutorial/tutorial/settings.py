@@ -1,5 +1,5 @@
 """
-Django settings for magicblog project.
+Django settings for tutorial project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x5r57vkoalx1tjwqloxq*rssi3i^zuf5x^76=jhrjv$2=ftmx='
+SECRET_KEY = 'u&(v+s5037^g*4)f$8*!ab#xtfqmv3m#*fn91@0+2rv-$7$v0r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,9 +36,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+    'quickstart',
     'rest_framework',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10,    
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,9 +55,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'magicblog.urls'
+ROOT_URLCONF = 'tutorial.urls'
 
-WSGI_APPLICATION = 'magicblog.wsgi.application'
+WSGI_APPLICATION = 'tutorial.wsgi.application'
 
 
 # Database
@@ -61,7 +66,7 @@ WSGI_APPLICATION = 'magicblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'magicblog',
+        'NAME': 'test',
         'USER': 'root',
         'PASSWORD': 'xukang',
         'HOST': '',
@@ -71,10 +76,6 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
-
-ADMINS = {
-    ('xukang', '1518079220@qq.com'),    
-}
 
 LANGUAGE_CODE = 'en-us'
 
@@ -90,6 +91,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-TEMPLATE_DIRS = ('/var/www/html/python/django/magicblog/templates',)
-
-STATIC_URL = '/var/www/html/python/django/magicblog/static/'
+STATIC_URL = '/static/'
