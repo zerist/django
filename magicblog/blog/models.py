@@ -1,17 +1,22 @@
 from django.db import models
 
 # Create your models here.
+
 class Account(models.Model):
     username = models.CharField(max_length = 50, unique=True)
     password = models.CharField(max_length = 50)
+    is_online = models.BooleanField(default = False)
     email = models.EmailField(unique=True)
     age = models.SmallIntegerField()
-    sex = models.BooleanField(default = True)
+    sex = models.CharField(max_length=5, choices=(('man', 'man'), ('woman', 'woman')), default='man')
     city = models.CharField(max_length = 20)
     date = models.DateField()
 
     def __unicode__(self):
-        return username
+        return self.username
+    
+    class Meta:
+        ordering = ('age', 'username', 'sex', 'city',)
 
 class Blog(models.Model):
     title = models.CharField(max_length = 60)
@@ -20,12 +25,15 @@ class Blog(models.Model):
     author = models.ForeignKey(Account)
     date = models.DateField()
     blog_type = models.CharField(max_length = 20)
-    is_transfromed = models.BooleanField(default = False)
+    is_transformed = models.BooleanField(default = False)
 
     def __unicode__(self):
-        return title
+        return self.title
 
-class LikeBolg(models.Model):
+    class Meta:
+        ordering = ('-is_transformed', 'date', 'blog_type', 'author')
+
+class LikeBlog(models.Model):
     like_account = models.ForeignKey(Account)
     like_blog = models.ForeignKey(Blog)
     date = models.DateField()
@@ -36,7 +44,7 @@ class Follow(models.Model):
     followed_account = models.CharField(max_length = 50)
     date = models.DateField()
 
-class ReplyBolg(models.Model):
+class ReplyBlog(models.Model):
     reply_account = models.ForeignKey(Account)
     reply_blog = models.ForeignKey(Blog)
     content = models.CharField(max_length = 280)
