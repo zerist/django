@@ -10,34 +10,26 @@
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="nav">
-        <ul class="nav nav-tabs nav-justified">
-        <li><a href="">Home</a></li>
-        <li><a href="">Category</a></li>
-        <li><a href="">My Blog</a></li>
-        <li><a href="">Myself</a></li>
-        <li><a href="">Logout</a></li>
-    </ul>
-    </div>
+    <script type="text/javascript" src="/static/js/tools.js"></script>
+    <script type="text/javascript" src="/static/js/ajax_login.js"></script>
     <form role="form" action="/users/" method="post">
         <div class="form-group">
-            <p class="lead" style="color:red;">{{message_success}}</p>
             <label for="username">username: </label>
             <input type="text" class="form-control" id="username" name="username" placeholder="username">
-            <p class="lead" id="message_username" style="color:red;">{{message_username}}</p> 
+            <p class="lead" style="color:red;" id="message_username"></p> 
         </div>
         <div class="form-group">
             <label for="password">password: </label>
             <input type="password" class="form-control" id="password" name="password" placeholder="password">
-            <p class="lead" id="message_password" style="color:red;">{{message_password}}</p>
+            <p class="lead" style="color:red;" id="message_password"></p>
         </div>
         <div class="checkbox">
             <label>
                 <input type="checkbox">remember my password
             </label>
         </div>
-        <button type="submit" class="btn btn-default" id="login" name="login" value="login"> login </button>
-        <button type="submit" class="btn btn-default" id="register" name="register" value="register"> register </button>
+        <button type="submit" class="btn btn-default" name="login" id="login" value="login"> login </button>
+        <button type="submit" class="btn btn-default" name="register" id="register" value="register"> register </button>
     </form>
 </body>
 </html>

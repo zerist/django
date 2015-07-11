@@ -5,35 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> my bootstrap test </title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
-    <form role="form">
+
+
+    <form role="form" name="form1" action="/users/" method="post">
         <div class="form-group">
             <label for="username">username: </label>
-            <input type="text" class="form-control" id="username" placeholder="username">
+            <input type="text" class="form-control" name="re_username" id="username" placeholder="username">
+            <p class="lead" name="message_username" style="color:red">{{message.username}}</p>
         </div>
         <div class="form-group">
             <label for="password">password: </label>
-            <input type="password" class="form-control" id="password" placeholder="password">
+            <input type="password" class="form-control" name="re_password" id="password" placeholder="password">
+            <p class="lead" name="message_password" style="color:red">{{message.password}}</p>
         </div>
         <div class="form-group">
             <label for="confirm password">confirm password: </label>
-            <input type="password" class="form-control" id="confirm_password" placeholder="confirm your password">
+            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="confirm your password">
+            <p class="lead" name="message_confirm_password" style="color:red">{{message.confirm_password}}</p>
         </div>
         <div class="form-group">
             <label for="email">email: </label>
-            <input type="email" class="form-control" id="email" placeholder="email">
+            <input type="email" class="form-control" name="email" id="email" placeholder="email">
+            <p class="lead" name="message_email" style="color:red">{{message.email}}</p>
         </div>
         <div class="form-group">
             <label for="city">city: </label>
-            <input type="text" class="form-control" id="city" placeholder="city">
+            <input type="text" class="form-control" name="city" id="city" placeholder="city">
+            <p class="lead" name="message_city" style="color:red">{{message.city}}</p>
         </div>
         <div class="form-group">
             <label for="age">age: </label>
-            <input type="text" class="form-control" id="age" placeholder="age">
+            <input type="text" class="form-control" name="age" id="age" placeholder="age">
+            <p class="lead" name="message_age" style="color:red">{{message.age}}</p>
         </div>
         <div class="form-group">
             <label class="radio-inline">
@@ -41,10 +50,11 @@
             </label>
             <label class="radio-inline">
                 <input type="radio" name="sex" value="woman">woman
-            <label>
+            </label>
+            <p class="lead" name="message_sex" style="color:red">{{message.sex}}</p>
         </div>
-        <button type="submit" class="btn btn-default"> confirm </button>
-        <button type="submit" class="btn btn-default"> cancel </button>
+        <button type="submit" class="btn btn-default" name="confirm" value="confirm"  > confirm </button>
+        <button type="submit" class="btn btn-default" name="cancel" value="cancel"> cancel </button>
     </form>
 </body>
 </html>

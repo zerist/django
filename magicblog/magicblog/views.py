@@ -6,7 +6,10 @@ from django.core.context_processors import csrf
 
 def index(request):
     tmp = get_template("index.html")
-    return render_to_response('index.html')
+    return render_to_response('index.html', {})
+
+def test(request):
+    return render_to_response('test.html', {})
 
 
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> test for javascript </title>
+</head>
+<body>
+    <p>haha</p>
+    <script type="text/javascript">
+        var xmlhttp = new XMLHttpRequest();
+    	xmlhttp.onreadystatechange = function(){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            var accountArray = json_get_all(xmlhttp);
+            for(var i=0; i<accountArray.length; i++){
+                var account_username = accountArray[i]['username']
+                if(username == account_username){
+                    id = accountArray[i]['id'];
+                    alert(id);    
+                }    
+            }
+        }    
+    }
+    xmlhttp.open('GET', 'http://127.0.0.1:8000/accounts/', true);
+    xmlhttp.send();
+    </script>   
+</body>
+</html>

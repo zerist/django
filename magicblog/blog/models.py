@@ -10,7 +10,7 @@ class Account(models.Model):
     age = models.SmallIntegerField()
     sex = models.CharField(max_length=5, choices=(('man', 'man'), ('woman', 'woman')), default='man')
     city = models.CharField(max_length = 20)
-    date = models.DateField()
+    date = models.DateField(auto_now=True)
 
     def __unicode__(self):
         return self.username
@@ -23,7 +23,7 @@ class Blog(models.Model):
     content = models.TextField()
     src = models.URLField()
     author = models.ForeignKey(Account)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
     blog_type = models.CharField(max_length = 20)
     is_transformed = models.BooleanField(default = False)
 
@@ -36,19 +36,19 @@ class Blog(models.Model):
 class LikeBlog(models.Model):
     like_account = models.ForeignKey(Account)
     like_blog = models.ForeignKey(Blog)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
 
 class Follow(models.Model):
     followe_account = models.ForeignKey(Account)      #something wrong in this 2 line of ForeignKey
     followed_account = models.CharField(max_length = 50)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
 class ReplyBlog(models.Model):
     reply_account = models.ForeignKey(Account)
     reply_blog = models.ForeignKey(Blog)
     content = models.CharField(max_length = 280)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
 
 

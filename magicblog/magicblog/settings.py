@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+SITE_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -43,7 +44,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -92,4 +93,9 @@ USE_TZ = True
 
 TEMPLATE_DIRS = ('/var/www/html/python/django/magicblog/templates',)
 
-STATIC_URL = '/var/www/html/python/django/magicblog/static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    ("css", os.path.join(STATIC_ROOT, 'css')),
+    ("js", os.path.join(STATIC_ROOT, 'js')),
+    ("images", os.path.join(STATIC_ROOT, 'images')),
+)
