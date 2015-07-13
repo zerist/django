@@ -1,4 +1,6 @@
 import urllib2, urllib
+import json
+import MySQLdb
 
 def http_get(url):
     url = "http://127.0.0.1:8000/" + url
@@ -40,3 +42,12 @@ def http_delete(url):
     response = urllib2.urlopen(request)
     result = response.read()
     return result
+
+
+def username_to_id(username):
+    data = http_get('accounts/')
+    json_data = json.loads(data)
+    for account in json_data:
+        if account['username'] == username:
+            return account['id']
+

@@ -11,6 +11,18 @@ class AccountViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
 
+class LoginView(views.APIView):
+    def get(self, request, format=None):
+        return render_to_response('login.html', {})
+
+    def post(self, request, format=None):
+        if request.POST.has_key('login'):
+            if request.POST.get('id'):
+                return render_to_response('index.html', {})
+            else:
+                return render_to_response('login.html', {'message_username': 'wrong username or password'})
+        
+
 class UserView(views.APIView):
     message = {'username':'', 'password':''}
 
@@ -33,6 +45,7 @@ class UserView(views.APIView):
                     return render_to_response('login.html', {'message_username':self.message['username']}) 
         
                 if post_password == account.password:
+                    
                     return render_to_response('index.html', {})
                 else:
                     self.message['password'] = 'wrong password for this account'

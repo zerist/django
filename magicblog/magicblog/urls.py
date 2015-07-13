@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^index/$', index),
     url(r'^users/$', UserView.as_view()),
     url(r'^test/$', test),
+    url(r'^login/$', LoginView.as_view()),
 )
 
 urlpatterns += router.urls
