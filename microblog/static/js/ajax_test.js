@@ -1,7 +1,8 @@
 $(document).ready(function(){
     $("#button").click(function(){
-        for (var i in $.ajax({url:'/accounts/',async:false}).responseText){
-            alert(i);    
-        }
+        xmlhttp = $.ajax({url:'/account/', dataType:"json", async:false});
+        data = eval(xmlhttp.responseText)
+        console.log(data[0].fields.age)
+        //console.log(xmlhttp.responseText)
     })    
 })

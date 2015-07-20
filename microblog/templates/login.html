@@ -11,13 +11,14 @@
 </head>
 <body>
     <script src="/static/js/ajax_login.js"></script>
+    <div id="container">
     <div class="nav">
         <ul class="nav nav-tabs nav-justified">
-        <li><a href="">Home</a></li>
-        <li><a href="">Category</a></li>
-        <li><a href="">My Blog</a></li>
-        <li><a href="">Myself</a></li>
-        <li><a href="">Logout</a></li>
+        <li><a href="javascript:void(0)" id="home">Home</a></li>
+        <li><a href="javascript:void(0)" id="category">Category</a></li>
+        <li><a href="javascript:void(0)" id="myblog">My Blog</a></li>
+        <li><a href="javascript:void(0)" id="myself">Myself</a></li>
+        <li><a href="javascript:void(0)" id="logout">Logout</a></li>
     </ul>
     </div>
     <form role="form" action="/users/" method="post">
@@ -40,5 +41,6 @@
         <button type="button" class="btn btn-default" id="login" name="login" value="login"> login </button>
         <button type="button" class="btn btn-default" id="register" name="register" value="register"> register </button>
     </form>
+    </div>
 </body>
 </html>

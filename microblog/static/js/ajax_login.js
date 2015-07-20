@@ -3,14 +3,25 @@ $(document).ready(function(){
         var username = $('#username').val();
         var password = $('#password').val();
         
-        var data = $.ajax({url:'/accounts/',dataType:'text',async:false}).responseText;
-        alert(data[0].username)
+        var data = $.ajax({url:'/account/',dataType:'json',async:false}).responseText;
+        data = eval(data)
         //var data = JSON.parse(raw_data);
         for(var i=0; i<data.length; i++){
-            if(data[i].username == username && data[i].password == password){
-                alert(3);
-                $.post('/login/', {'login': 'true', 'username': username, 'id': data[i].id});
+            if(data[i].fields.username == username && data[i].fields.password == password){
+                var result_account = $.ajax({
+                    url:'/account/'+data[i].pk+'/', 
+                    type:"PATCH",
+                    async:false,
+                    data:{'is_online':'true'}
+                });
+                
+                window.location = "/index/" + data[i].pk + '/'
+
             }
         }    
-    })   
+    }) 
+    
+    $('#register').click(function(){
+        window.location = "/register/"
+    }) 
 })

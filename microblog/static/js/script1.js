@@ -1,11 +1,11 @@
 window.onload = function(){
-    waterfall("main", "box");   
+    waterfall("main", "panel-default");   
 }
 
 function waterfall(parentName, boxName){
     var parentDiv = document.getElementById(parentName);
     var elemArray = getByClass(parentDiv, boxName);
-    var elemWidth = elemArray[0].offsetWidth;
+    var elemWidth = 202;
     var totalWidth = document.documentElement.clientWidth;
     var cols = Math.floor(totalWidth / elemWidth);
 

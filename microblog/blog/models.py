@@ -1,3 +1,5 @@
+#coding: utf-8
+
 from django.db import models
 
 # Create your models here.
@@ -13,7 +15,7 @@ class Account(models.Model):
     date = models.DateField(auto_now=True)
 
     def __unicode__(self):
-        return self.username
+        return self.username.encode('utf-8')
     
     class Meta:
         ordering = ('age', 'username', 'sex', 'city',)
@@ -27,8 +29,6 @@ class Blog(models.Model):
     blog_type = models.CharField(max_length = 20)
     is_transformed = models.BooleanField(default = False)
 
-    def __unicode__(self):
-        return self.title
 
     class Meta:
         ordering = ('-is_transformed', 'date', 'blog_type', 'author')

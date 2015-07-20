@@ -5,54 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> my bootstrap test </title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <script src="/static/js/ajax_person.js"></script>
     <div class="nav">
-    <ul class="nav nav-tabs nav-justified">
-        <li><a href="">Home</a></li>
-        <li><a href="">Category</a></li>
-        <li><a href="">My Blog</a></li>
-        <li><a href="">Myself</a></li>
-        <li><a href="">Logout</a></li>
+   <ul class="nav nav-tabs nav-justified">
+        <li><a href="javascript:void(0)" id="home">Home</a></li>
+        <li><a href="javascript:void(0)" id="category">Category</a></li>
+        <li><a href="javascript:void(0)" id="myblog">My Blog</a></li>
+        <li><a href="javascript:void(0)" id="myself">Myself</a></li>
+        <li><a href="javascript:void(0)" id="logout">Logout</a></li>
     </ul>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-xs-4">username: </div>
-            <div class="col-md-4 col-xs-4">{{ username }} </div>
+            <div class="col-md-4 col-xs-4"><h4>username: </h4></div>
+            <div class="col-md-4 col-xs-4" id="username"><h4>{{ username }} </h4></div>
             <div class="col-md-4 col-xs-4">
-                <button type="submit" class="btn btn-default" name="username">change</button>
+                <button type="button" id="usernamebutton" class="btn btn-default" name="username">change</button>
             </div>
         </div>
-        
+        <hr/> 
         <div class="row">
-            <div class="col-md-4 col-xs-4">email: </div>
-            <div class="col-md-4 col-xs-4">{{ email }}</div>
+            <div class="col-md-4 col-xs-4"><h4 >email: </h4></div>
+            <div class="col-md-4 col-xs-4" id="email"><h4>{{ email }}</h4></div>
             <div class="col-md-4 col-xs-4">
-                <button type="submit" class="btn btn-default" name="email">change</button>
+                <button type="button" id="emailbutton" class="btn btn-default" name="email">change</button>
             </div>
         </div>
+        <hr/>
         <div class="row">
-            <div class="col-md-4">city:</div>
-            <div class="col-md-4">{{ city }}</div>
+            <div class="col-md-4"><h4>city:</h4></div>
+            <div class="col-md-4" id="city"><h4>{{ city }}</h4></div>
             <div class="col-md-4">
-                <button type="submit" class="btn btn-default" name="city">change</button>
+                <button type="button" id="citybutton" class="btn btn-default" name="city">change</button>
             </div>
         </div>
-        
+        <hr/>
         <div class="row">
-            <div class="col-md-4">age:</div>
-            <div class="col-md-8">{{ age }}</div>
+            <div class="col-md-4"><h4>age:</h4></div>
+            <div class="col-md-8"><h4>{{ age }}</h4></div>
         </div>
-        
+        <hr/>
         <div class="row">
-            <div class="col-md-4">sex:</div>
-            <div class="col-md-8">{{ sex }}</div>
+            <div class="col-md-4"><h4>sex:</h4></div>
+            <div class="col-md-8"><h4>{{ sex }}</h4></div>
         </div>
-        
+        <hr/>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel-default">
+                    <div class="panel-heading">
+                        <button type="button" class="btn btn-primary" id="followbtn">follow</button>
+                    </div>
+                    <div class="panel-body" id="followbody">
+
+                    </div>
+                </div>
+            </div> 
+            <div class="col-md-4">
+                <div class="panel-default">
+                    <div class="panel-heading">
+                        <button type="button" class="btn btn-primary" id="likebtn">like</button>
+                    </div>
+                </div>
+                <div class="panel-body" id="likebody">
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel-default">
+                    <div class="panel-heading">
+                        <button type="button" class="btn btn-primary" id="replybtn">reply</button>
+                    </div>
+                    <div class="panel-body" id="replybody">
+                    </div>
+                </div>
+        </div> 
         
 
     </div>

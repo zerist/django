@@ -1,3 +1,5 @@
+#coding: utf-8
+
 """
 Django settings for magicblog project.
 
@@ -13,6 +15,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SITE_ROOT = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
+
+FILE_CHARSET = 'utf-8'
+DEFAULT_CHARSET = 'utf-8'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -50,6 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+
 ROOT_URLCONF = 'microblog.urls'
 
 WSGI_APPLICATION = 'microblog.wsgi.application'
@@ -76,7 +82,7 @@ ADMINS = {
     ('xukang', '1518079220@qq.com'),    
 }
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 
 TIME_ZONE = 'UTC'
 

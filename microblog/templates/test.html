@@ -12,7 +12,10 @@
 <body>
     <script src='/static/js/ajax_test.js'></script>
     <p id="test"></p>
-    <button id="button">click</button>
+    <button id="button" value='clcik'>click</button>
+    <script type='text/javascript'>
+        alert(document.getElementById('button').value)
+    </script>
     <ul class="nav nav-tabs nav-justified">
         <li><a href="/index/">Home</a></li>
         <li><a href="">Category</a></li>
